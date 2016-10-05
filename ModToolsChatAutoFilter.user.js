@@ -2,7 +2,7 @@
 // @name            Mod Tools Chat Auto Filter
 // @author          Carbon
 // @description     A helpful automatic chat filter for certain alert phrases in the TagPro Mod Tools.
-// @version         2.0
+// @version         2.1
 // @updateURL       https://github.com/vCarbonnn/ModToolsChatAutoFilter/raw/master/ModToolsChatAutoFilter.user.js
 // @include         http://tagpro-*.koalabeast.com/moderate/chat
 // ==/UserScript==
