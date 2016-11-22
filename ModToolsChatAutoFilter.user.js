@@ -1,8 +1,9 @@
 // ==UserScript==
 // @name            Mod Tools Chat Auto Filter
 // @author          Carbon
+// @contributor     bizkut
 // @description     A helpful automatic chat filter for certain alert phrases in the TagPro Mod Tools.
-// @version         2.1
+// @version         2.2
 // @updateURL       https://github.com/vCarbonnn/ModToolsChatAutoFilter/raw/master/ModToolsChatAutoFilter.user.js
 // @include         http://tagpro-*.koalabeast.com/moderate/chat
 // ==/UserScript==
@@ -36,25 +37,33 @@
         }
     });
 
+    $(document).ajaxStop(function () {
+        if(enabled) {
+          document.getElementById("chatAutoFilter").innerText = "Enabled";
+          changeTitle(0);
+          findString();
+        }
+    });
+
     function filterAndFind() {
         document.getElementById("filterButton").click();
-        $(document).ajaxStop(function () {
-            document.getElementById("chatAutoFilter").innerText = "Enabled";
-            changeTitle(0);
-            findString();
-        });
     }
 
     function findString() {
+        var alertColor = "red";
+        var newWord = false;
         var count = 0;
         var rows = $('tr');
         for (var i=1; i<rows.length; i++) {
             var rowStringContents = rows[i].children[6].innerHTML;
             for(var j=0; j<alertWords.length; j++) {
                 if(rowStringContents.search(alertWords[j]) >= 0) {
-                    count++;
-                    $('tr')[i].children[6].style.color = "red"; //You can add to/change as you wish
-                    $('tr')[i].children[6].style.fontSize = "250%";
+                    if ($('tr')[i].children[6].style.color != alertColor) {
+                        count++;
+                        $('tr')[i].children[6].style.color = alertColor; //You can add to/change as you wish
+                        $('tr')[i].children[6].style.fontSize = "250%";
+                    }
+
                 }
             }
         }
