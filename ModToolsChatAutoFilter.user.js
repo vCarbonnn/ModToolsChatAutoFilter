@@ -3,9 +3,9 @@
 // @author          Carbon
 // @contributor     bizkut
 // @description     A helpful automatic chat filter for certain alert phrases in the TagPro Mod Tools.
-// @version         2.2
+// @version         2.3
 // @updateURL       https://github.com/vCarbonnn/ModToolsChatAutoFilter/raw/master/ModToolsChatAutoFilter.user.js
-// @include         http://tagpro-*.koalabeast.com/moderate/chat
+// @include         *://tagpro*.koalabeast.com/moderate/chat
 // ==/UserScript==
 
     var alertWords = ["!mods","!rnods","nigg","gger","igga","niqq","n i g ","fgt","feg","feggit","f a g","cvnt","kunt","c unt","c u n "];
